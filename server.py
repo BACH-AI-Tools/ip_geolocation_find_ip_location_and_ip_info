@@ -13,8 +13,8 @@ import httpx
 from fastmcp import FastMCP
 
 # 服务器版本和配置
-__version__ = "1.0.0"
-__tag__ = "ip_geolocation_find_ip_location_and_ip_info/1.0.0"
+__version__ = "2.0.0"
+__tag__ = "ip_geolocation_find_ip_location_and_ip_info/2.0.0"
 
 # API 配置
 API_KEY = os.getenv("API_KEY", "")

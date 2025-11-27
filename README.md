@@ -33,7 +33,7 @@
 这是一个 MCP 服务器，用于访问 Ip Geolocation Find Ip Location And Ip Info API。
 
 - **PyPI 包名**: `bach-ip_geolocation_find_ip_location_and_ip_info`
-- **版本**: 1.0.0
+- **版本**: 2.0.0
 - **传输协议**: stdio
 
 
@@ -151,4 +151,4 @@ This endpoint returns geolocation and other useful points from an IP Address. If
 
 此服务器由 [API-to-MCP](https://github.com/BACH-AI-Tools/api-to-mcp) 工具自动生成。
 
-版本: 1.0.0
+版本: 2.0.0

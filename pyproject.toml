@@ -1,6 +1,6 @@
 [project]
 name = "bach-ip_geolocation_find_ip_location_and_ip_info"
-version = "1.0.0"
+version = "2.0.0"
 description = "RapidAPI: Chetan11dev/ip-geolocation-find-ip-location-and-ip-info"
 readme = "README.md"
 requires-python = ">=3.10"
