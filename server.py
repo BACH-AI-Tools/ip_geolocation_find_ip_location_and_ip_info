@@ -1,13 +1,14 @@
 """
 Ip Geolocation Find Ip Location And Ip Info MCP Server
 
-使用 FastMCP 的 from_openapi 方法自动生成
+MCP server for accessing API.
 
 Version: 1.0.0
 Transport: stdio
 """
 import os
 import json
+from pathlib import Path
 import httpx
 from fastmcp import FastMCP
 
@@ -22,8 +23,12 @@ API_KEY = os.getenv("API_KEY", "")
 TRANSPORT = "stdio"
 
 
-# OpenAPI 规范
-OPENAPI_SPEC = """{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Ip Geolocation Find Ip Location And Ip Info\",\n    \"version\": \"1.0.0\",\n    \"description\": \"RapidAPI: Chetan11dev/ip-geolocation-find-ip-location-and-ip-info\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"https://ip-geolocation-find-ip-location-and-ip-info.p.rapidapi.com\"\n    }\n  ],\n  \"paths\": {\n    \"/backend/ipinfo/\": {\n      \"get\": {\n        \"summary\": \"Get IP Geolocation\",\n        \"description\": \"This endpoint returns geolocation and other useful points from an IP Address. If IP address is provided as query parameter, geolocation is performed on that IP address. If IP address is left empty, geolocation data of client IP is returned.\",\n        \"operationId\": \"get_ip_geolocation\",\n        \"parameters\": [\n          {\n            \"name\": \"ip\",\n            \"in\": \"query\",\n            \"required\": false,\n            \"description\": \"Example value: 206.71.50.230\",\n            \"schema\": {\n              \"type\": \"string\",\n              \"default\": null,\n              \"enum\": null\n            }\n          }\n        ],\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Successful response\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {}\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"securitySchemes\": {\n      \"ApiAuth\": {\n        \"type\": \"apiKey\",\n        \"in\": \"header\",\n        \"name\": \"X-RapidAPI-Key\"\n      }\n    }\n  },\n  \"security\": [\n    {\n      \"ApiAuth\": []\n    }\n  ]\n}"""
+# 从文件加载 OpenAPI 规范
+def load_openapi_spec():
+    """从 openapi.json 文件加载 OpenAPI 规范"""
+    openapi_path = Path(__file__).parent / "openapi.json"
+    with open(openapi_path, "r", encoding="utf-8") as f:
+        return json.load(f)
 
 # 创建 HTTP 客户端
 # 设置默认 headers
@@ -52,7 +57,7 @@ client = httpx.AsyncClient(
 
 
 # 从 OpenAPI 规范创建 FastMCP 服务器
-openapi_dict = json.loads(OPENAPI_SPEC)
+openapi_dict = load_openapi_spec()
 mcp = FastMCP.from_openapi(
     openapi_spec=openapi_dict,
     client=client,

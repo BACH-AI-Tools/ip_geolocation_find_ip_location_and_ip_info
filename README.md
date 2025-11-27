@@ -30,7 +30,7 @@
 
 ## 简介
 
-这是一个使用 [FastMCP](https://fastmcp.wiki) 自动生成的 MCP 服务器，用于访问 Ip Geolocation Find Ip Location And Ip Info API。
+这是一个 MCP 服务器，用于访问 Ip Geolocation Find Ip Location And Ip Info API。
 
 - **PyPI 包名**: `bach-ip_geolocation_find_ip_location_and_ip_info`
 - **版本**: 1.0.0
@@ -107,8 +107,8 @@ export API_KEY="your_api_key_here"
 {
   "mcpServers": {
     "ip_geolocation_find_ip_location_and_ip_info": {
-      "command": "python",
-      "args": ["E:\path\to\ip_geolocation_find_ip_location_and_ip_info\server.py"],
+      "command": "uvx",
+      "args": ["--from", "bach-ip_geolocation_find_ip_location_and_ip_info", "bach_ip_geolocation_find_ip_location_and_ip_info"],
       "env": {
         "API_KEY": "your_api_key_here"
       }
@@ -144,7 +144,6 @@ This endpoint returns geolocation and other useful points from an IP Address. If
 
 ## 技术栈
 
-- **FastMCP**: 快速、Pythonic 的 MCP 服务器框架
 - **传输协议**: stdio
 - **HTTP 客户端**: httpx
 

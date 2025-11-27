@@ -1,0 +1,59 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Ip Geolocation Find Ip Location And Ip Info",
+    "version": "1.0.0",
+    "description": "RapidAPI: Chetan11dev/ip-geolocation-find-ip-location-and-ip-info"
+  },
+  "servers": [
+    {
+      "url": "https://ip-geolocation-find-ip-location-and-ip-info.p.rapidapi.com"
+    }
+  ],
+  "paths": {
+    "/backend/ipinfo/": {
+      "get": {
+        "summary": "Get IP Geolocation",
+        "description": "This endpoint returns geolocation and other useful points from an IP Address. If IP address is provided as query parameter, geolocation is performed on that IP address. If IP address is left empty, geolocation data of client IP is returned.",
+        "operationId": "get_ip_geolocation",
+        "parameters": [
+          {
+            "name": "ip",
+            "in": "query",
+            "required": false,
+            "description": "Example value: 206.71.50.230",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-RapidAPI-Key"
+      }
+    }
+  },
+  "security": [
+    {
+      "ApiAuth": []
+    }
+  ]
+}

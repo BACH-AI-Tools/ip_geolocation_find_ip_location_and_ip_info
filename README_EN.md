@@ -30,7 +30,7 @@ Visit **[EMCP Platform](https://sit-emcp.kaleido.guru)** now to start your MCP j
 
 ## Introduction
 
-This is an automatically generated MCP server using [FastMCP](https://fastmcp.wiki) for accessing the Ip Geolocation Find Ip Location And Ip Info API.
+This is an MCP server for accessing the Ip Geolocation Find Ip Location And Ip Info API.
 
 - **PyPI Package**: `bach-ip_geolocation_find_ip_location_and_ip_info`
 - **Version**: 1.0.0
@@ -107,8 +107,8 @@ export API_KEY="your_api_key_here"
 {
   "mcpServers": {
     "ip_geolocation_find_ip_location_and_ip_info": {
-      "command": "python",
-      "args": ["E:\path\to\ip_geolocation_find_ip_location_and_ip_info\server.py"],
+      "command": "uvx",
+      "args": ["--from", "bach-ip_geolocation_find_ip_location_and_ip_info", "bach_ip_geolocation_find_ip_location_and_ip_info"],
       "env": {
         "API_KEY": "your_api_key_here"
       }
